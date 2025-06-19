@@ -10,13 +10,17 @@ dotnetBuildHook() {
         local dotnetTestProjectFilesArray=( "${dotnetTestProjectFiles[@]}" )
         local dotnetFlagsArray=( "${dotnetFlags[@]}" )
         local dotnetBuildFlagsArray=( "${dotnetBuildFlags[@]}" )
-        local dotnetRuntimeIdsArray=( "${dotnetRuntimeIds[@]}" )
+        if [[ ! -n $dotnetPackNupkg ]]; then
+            local dotnetRuntimeIdsArray=( "${dotnetRuntimeIds[@]}" )
+        fi
     else
         local dotnetProjectFilesArray=($dotnetProjectFiles)
         local dotnetTestProjectFilesArray=($dotnetTestProjectFiles)
         local dotnetFlagsArray=($dotnetFlags)
         local dotnetBuildFlagsArray=($dotnetBuildFlags)
-        local dotnetRuntimeIdsArray=($dotnetRuntimeIds)
+        if [[ ! -n $dotnetPackNupkg ]]; then
+            local dotnetRuntimeIdsArray=($dotnetRuntimeIds)
+        fi
     fi
 
     if [[ -n "${enableParallelBuilding-}" ]]; then
