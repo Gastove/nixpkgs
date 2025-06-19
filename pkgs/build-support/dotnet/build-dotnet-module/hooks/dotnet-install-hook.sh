@@ -11,7 +11,7 @@ dotnetInstallHook() {
         local dotnetFlagsArray=( "${dotnetFlags[@]}" )
         local dotnetInstallFlagsArray=( "${dotnetInstallFlags[@]}" )
         local dotnetPackFlagsArray=( "${dotnetPackFlags[@]}" )
-        if [[ ! -n $dotnetPackNupkg ]]; then
+        if [[ ! -n ${packNupkg-} ]]; then
             local dotnetRuntimeIdsArray=( "${dotnetRuntimeIds[@]}" )
         fi
     else
@@ -19,7 +19,7 @@ dotnetInstallHook() {
         local dotnetFlagsArray=($dotnetFlags)
         local dotnetInstallFlagsArray=($dotnetInstallFlags)
         local dotnetPackFlagsArray=($dotnetPackFlags)
-        if [[ ! -n $dotnetPackNupkg ]]; then
+        if [[ ! -n ${packNupkg-} ]]; then
             local dotnetRuntimeIdsArray=($dotnetRuntimeIds)
         fi
     fi
